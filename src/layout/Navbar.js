@@ -301,32 +301,28 @@ function Navbar() {
       ) : (
         <div className="navb">
           <div
-            className="row "
-            style={{
-              height: 65,
-              margin: 0,
-              width: "100%",
-              background: "#F0EEEB",
-            }}
           >
             <div
-              className="col-4"
+            className="first"
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                border: "1px solid #E2E2E2"
               }}
             >
               <Link to="/">
                 <img
-                  src="/sources/vibtic.png"
-                  alt="vibtic"
-                  style={{ width: 110, height: 30, transition: "width 0.5s" }}
+                  src="/sources/logo.svg"
+                  alt="Mon exterieur"
+                  style={{ width: 168, height: 20, transition: "width 0.5s" }}
                 />
               </Link>
             </div>
-            <div className=" col-7 second">
-              <div
+            <div className=" second">
+            <i className="fas fa-search"></i>
+              <input type="text" placeholder="Recherche"/>
+              {/* <div
                 className="drop"
                 style={{
                   position: "relative",
@@ -344,27 +340,9 @@ function Navbar() {
                   style={{ color: location.pathname === "/" && "#E73528" }}
                 >
                   Accueil
-                  {/* <MDBIcon icon="angle-down" className="ml-1" size="lg"/> */}
+                
                 </Link>
-                {/* { drop.valeur==1&& <div style={{position:"absolute",top:30,right:0,width:"max-content"}}  onMouseLeave={()=>{setDrop({...drop,valeur:0});setUnder(0)}}>
-          <ul  style={{listStyleType:"none",padding:0,margin:0}}>
-              <li>
-                  VIBTIC
-              </li>
-              <li>
-                 compétences & expertise
-              </li>
-              <li>
-                 implantation
-              </li>
-              <li>
-                  nos valeurs et nos engagements
-              </li>
-              <li>
-                  références
-              </li>
-          </ul>
-          </div>} */}
+               
               </div>
               <div
                 className="drop"
@@ -497,9 +475,7 @@ function Navbar() {
                     <ul
                       style={{ listStyleType: "none", padding: 0, margin: 0 }}
                     >
-                      {/* <li>
-                 notre politique rh
-              </li> */}
+                    
                       <li>
                         <Link
                           to="/offres"
@@ -536,7 +512,30 @@ function Navbar() {
                 >
                   Contact
                 </Link>
-              </div>
+              </div> */}
+            </div>
+            <div>
+              <img src="/sources/mark.svg" alt="mark"/>
+              <span>Notre magasin</span>
+            </div>
+            <div>
+              <img src="/sources/fence.svg" alt="fence"/>
+              <span>Configurateur</span>
+            </div>
+            <div></div>
+          </div>
+          <div>
+            <div>
+              Accueil
+            </div>
+            <div>
+              Boutique
+            </div>
+            <div>
+              Nos réalisations
+            </div>
+            <div>
+              Contactez-nous
             </div>
           </div>
         </div>

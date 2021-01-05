@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { MDBCollapse } from "mdbreact";
 import { MDBIcon } from "mdbreact";
 import "../style/navbar.css";
 function Navbar() {
   const location = useLocation();
+  const history = useHistory();
   const [drop, setDrop] = useState({ valeur: 0 });
   const [under, setUnder] = useState(0);
   const [size, setSize] = useState(false);
   const [clk, setClk] = useState(false);
   const [collapseID, setCollapseID] = useState("");
   const [colNum, setColNum] = useState(0);
-  
+  const [contactData, setContactData] = useState({
+    nom: "",
+    email: "",
+    message: "",
+  });
+  const onChange = (e) => {
+    setContactData({ ...contactData, [e.target.id]: e.target.value });
+  };
   const toggleCollapse = (collapse) => {
     setCollapseID(collapse !== collapseID ? collapse : "");
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
   };
   // useEffect(() => {
   //   window.addEventListener("scroll", () => {
@@ -153,7 +164,7 @@ function Navbar() {
                           "#E73528",
                       }}
                     >
-                     Services{" "}
+                      Services{" "}
                     </span>
                     <MDBCollapse
                       id="basicCollapse"
@@ -177,7 +188,7 @@ function Navbar() {
                                   : "black",
                             }}
                           >
-                           systéme d'information
+                            systéme d'information
                           </Link>
                         </li>
                         <li>
@@ -191,7 +202,7 @@ function Navbar() {
                                   : "black",
                             }}
                           >
-                           réseaux & sécurité
+                            réseaux & sécurité
                           </Link>
                         </li>
                         <li>
@@ -262,7 +273,7 @@ function Navbar() {
                                   : "black",
                             }}
                           >
-                           nos offres d'emploi
+                            nos offres d'emploi
                           </Link>
                         </li>
                         <li>
@@ -300,15 +311,14 @@ function Navbar() {
         </div>
       ) : (
         <div className="navb">
-          <div
-          >
+          <div>
             <div
-            className="first"
+              className="first"
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                border: "1px solid #E2E2E2"
+                border: "1px solid #E2E2E2",
               }}
             >
               <Link to="/">
@@ -320,8 +330,8 @@ function Navbar() {
               </Link>
             </div>
             <div className=" second">
-            <i className="fas fa-search"></i>
-              <input type="text" placeholder="Recherche"/>
+              <i className="fas fa-search"></i>
+              <input type="text" placeholder="Recherche" />
               {/* <div
                 className="drop"
                 style={{
@@ -515,106 +525,141 @@ function Navbar() {
               </div> */}
             </div>
             <div>
-              <img src="/sources/mark.svg" alt="mark"/>
+              <img src="/sources/mark.svg" alt="mark" />
               <span>Notre magasin</span>
             </div>
             <div>
-              <img src="/sources/fence.svg" alt="fence"/>
+              <img src="/sources/fence.svg" alt="fence" />
               <span>Configurateur</span>
             </div>
             <div></div>
           </div>
           <div>
             <div>
-              Accueil
+              <span>Accueil</span>
             </div>
-            <div onMouseEnter={() => {
-              setTimeout(() => {
-                 setDrop({ ...drop, valeur: 2 });
-              }, 1000);
-                   
-                  }}
-                  onClick={() => {
-                    setTimeout(() => {
-                      setDrop({ ...drop, valeur: 2 });
-                   }, 1000);
-                    
-                  }}
+            <div
+              onMouseEnter={() => {
+                setDrop({ ...drop, valeur: 2 });
+              }}
+              onClick={() => {
+                setDrop({ ...drop, valeur: 2 });
+              }}
+              style={{
+                position: "relative",
+              }}
+            >
+              <span>Boutique</span>
+
+              {drop.valeur === 2 && (
+                <div
                   style={{
-                    position: "relative",
-                   
-                  }}>
-              Boutique
-              {/* {drop.valeur === 2 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      right: 0,
-                      left:0,
-                    }}
-                    onMouseLeave={() => {
-                      setDrop({ ...drop, valeur: 0 });
-                      setUnder(0);
-                    }}
-                  >
-                    <ul
-                      style={{ listStyleType: "none", padding: 0, margin: 0 }}
-                    >
-                      <li>
-                        <Link
-                          to="/systeme"
-                          style={{
-                            fontSize: 14,
-                            color:
-                              location.pathname === "/systeme" && "#E73528",
-                          }}
-                        >
-                         systéme d'information
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/reseau"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/reseau" && "#E73528",
-                          }}
-                        >
-                         réseaux & sécurité
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/web"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/web" && "#E73528",
-                          }}
-                        >
-                          application web
-                        </Link>
-                      </li>
-                      <li style={{ border: "none" }}>
-                        <Link
-                          to="/projet"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/projet" && "#E73528",
-                          }}
-                        >
-                          gestion du projet
-                        </Link>
-                      </li>
-                    </ul>
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    left: 0,
+                    background: "url(/sources/img_accueil.svg)",
+                  }}
+                  onMouseLeave={() => {
+                    setDrop({ ...drop, valeur: 0 });
+                  }}
+                  className="drop-list"
+                >
+                  <ul style={{ listStyleType: "none", margin: 0 }}>
+                    <li>
+                      <Link to="/">Lame commposite</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Lame en bois</Link>
+                    </li>
+                    <li>
+                      <Link to="/">Panneau bois</Link>
+                    </li>
+                    <li style={{ border: "none" }}>
+                      <Link to="/">Grille rigide</Link>
+                    </li>
+                    <li style={{ border: "none" }}>
+                      <Link to="/">Gabion</Link>
+                    </li>
+                  </ul>
+                  <div onClick={() => history.push("/boutique")}>Boutique</div>
+                </div>
+              )}
+            </div>
+            <div>
+              <span>Nos réalisations</span>
+            </div>
+            <div
+              onMouseEnter={() => {
+                setDrop({ ...drop, valeur: 4 });
+              }}
+              onClick={() => {
+                setDrop({ ...drop, valeur: 4 });
+              }}
+              style={{
+                position: "relative",
+              }}
+            >
+              <span>Contactez-nous</span>
+              {drop.valeur === 4 && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    left: 0,
+                  }}
+                  onMouseLeave={() => {
+                    setDrop({ ...drop, valeur: 0 });
+                  }}
+                  className="drop-list-contact"
+                >
+                  <div style={{ background: "url(/sources/img_accueil.svg)" }}>
+                    {" "}
+                    <p>Coordonnées & Map</p>
                   </div>
-                )} */}
-            </div>
-            <div>
-              Nos réalisations
-            </div>
-            <div>
-              Contactez-nous
+
+                  <div>
+                    <p>
+                      <b>
+                        Hey! Pour toute informations ou suggestions, Merci de
+                        remplir le formulaire suivant
+                      </b>
+                    </p>
+                    <form>
+                      <input
+                        type="text"
+                        id="nom"
+                        value={contactData.nom}
+                        className="form-control mb-2"
+                        onChange={onChange}
+                        placeholder="Nom & Prénom"
+                      />
+
+                      <input
+                        type="email"
+                        id="email"
+                        value={contactData.email}
+                        className="form-control mb-2"
+                        onChange={onChange}
+                        placeholder="E-mail"
+                      />
+
+                      <div className="form-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                          className="form-control rounded-0"
+                          id="message"
+                          value={contactData.message}
+                          rows="3"
+                          onChange={onChange}
+                        ></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div onClick={onSubmit}>Envoyer</div>
+                </div>
+              )}
             </div>
           </div>
         </div>

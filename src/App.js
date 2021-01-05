@@ -6,8 +6,13 @@ function App() {
     <div className="App" style={{ paddingTop: 70 }}>
      <div className="App_center">
         <Navbar />
-        <div className="home-page">
+        <div className="home-page" style={{background:'url(/sources/home_welcome.png)'}}>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quia, nemo quibusdam esse assumenda maiores libero laboriosam modi magnam delectus tenetur officia consequatur veritatis unde, dolore quod aperiam soluta impedit.</p>
+        </div>
+        
+        <div className="home">
 <img src="/sources/home_welcome.png" alt=""/>
+
         </div>
 </div>
     </div>

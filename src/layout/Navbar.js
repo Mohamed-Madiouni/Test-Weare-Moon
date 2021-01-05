@@ -528,8 +528,87 @@ function Navbar() {
             <div>
               Accueil
             </div>
-            <div>
+            <div onMouseEnter={() => {
+              setTimeout(() => {
+                 setDrop({ ...drop, valeur: 2 });
+              }, 1000);
+                   
+                  }}
+                  onClick={() => {
+                    setTimeout(() => {
+                      setDrop({ ...drop, valeur: 2 });
+                   }, 1000);
+                    
+                  }}
+                  style={{
+                    position: "relative",
+                   
+                  }}>
               Boutique
+              {/* {drop.valeur === 2 && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      right: 0,
+                      left:0,
+                    }}
+                    onMouseLeave={() => {
+                      setDrop({ ...drop, valeur: 0 });
+                      setUnder(0);
+                    }}
+                  >
+                    <ul
+                      style={{ listStyleType: "none", padding: 0, margin: 0 }}
+                    >
+                      <li>
+                        <Link
+                          to="/systeme"
+                          style={{
+                            fontSize: 14,
+                            color:
+                              location.pathname === "/systeme" && "#E73528",
+                          }}
+                        >
+                         systéme d'information
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/reseau"
+                          style={{
+                            fontSize: 14,
+                            color: location.pathname === "/reseau" && "#E73528",
+                          }}
+                        >
+                         réseaux & sécurité
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/web"
+                          style={{
+                            fontSize: 14,
+                            color: location.pathname === "/web" && "#E73528",
+                          }}
+                        >
+                          application web
+                        </Link>
+                      </li>
+                      <li style={{ border: "none" }}>
+                        <Link
+                          to="/projet"
+                          style={{
+                            fontSize: 14,
+                            color: location.pathname === "/projet" && "#E73528",
+                          }}
+                        >
+                          gestion du projet
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )} */}
             </div>
             <div>
               Nos réalisations

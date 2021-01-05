@@ -9,6 +9,7 @@ width: 100%;
 -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75); */
 background:  #FFFFFF;
+height: 70px;
 }
 .navb>div:first-child{
     display: grid;
@@ -119,12 +120,15 @@ cursor: pointer;
     grid-column-start: 5;
     grid-column-end: 6;
     border : 1px solid #E2E2E2;
+    border-left: none;
 }
 .navb>div:last-child{
     display: grid;
-    grid-template-columns: 10% 20% 20% 20% 20% 10%;
-    width: 100%;
+    grid-template-columns:  25% 25% 25% 25% ;
+    width: 80%;
     height: 50px;
+    margin-left: 10%;
+    background:  #FFFFFF;
 }
 .navb>div:last-child div:nth-child(1){
     display: flex;
@@ -132,8 +136,8 @@ cursor: pointer;
     align-items: center;
     font-size: 16px;
     color: #1F1F1F;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
     border : 1px solid #E2E2E2;
     border-top: none;
     cursor: pointer;
@@ -148,8 +152,8 @@ cursor: pointer;
     align-items: center;
     font-size: 16px;
     color: #1F1F1F;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
     border : 1px solid #E2E2E2;
     border-left: none;
     border-top: none;
@@ -165,8 +169,8 @@ cursor: pointer;
     align-items: center;
     font-size: 16px;
     color: #1F1F1F;
-    grid-column-start: 4;
-    grid-column-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
     border : 1px solid #E2E2E2;
     border-left: none;
     border-top: none;
@@ -182,8 +186,8 @@ cursor: pointer;
     align-items: center;
     font-size: 16px;
     color: #1F1F1F;
-    grid-column-start: 5;
-    grid-column-end: 6;
+    grid-column-start: 4;
+    grid-column-end: 5;
     border : 1px solid #E2E2E2;
     border-left: none;
     border-top: none;

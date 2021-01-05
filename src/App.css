@@ -7,5 +7,13 @@
 .App_center{ 
   width: 100%;
   flex: 1 0 auto;
-  background-color: #F8F8F8;
+  background-color: #F8F8F8 !important;
+}
+.home-page{
+  width: 100%;
+  height: 280px;
+}
+.home-page>img{
+  width: 100%;
+  height: 100%;
 }

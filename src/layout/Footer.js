@@ -27,7 +27,7 @@ function Footer() {
           </div>
         </div>
         <div>
-          <p>Nous contacter</p>
+          <p>Horaires</p>
           <div>
             <p>
               <i className="far fa-clock"></i>7:30 -12:00

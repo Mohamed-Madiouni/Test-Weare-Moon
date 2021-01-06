@@ -251,13 +251,14 @@ function Navbar() {
                     top: 0,
                     right: 0,
                     left: 0,
-                    background: "url(/sources/img_accueil.svg)",
+                    cursor:"pointer"
                   }}
                   onMouseLeave={() => {
                     setDrop({ ...drop, valeur: 0 });
                   }}
                   className="drop-list"
                 >
+                  <div style={{background: "url(/sources/img_accueil.svg)"}} >
                   <ul style={{ listStyleType: "none", margin: 0 }}>
                     <li>
                       <Link to="/">Lame commposite</Link>
@@ -275,6 +276,7 @@ function Navbar() {
                       <Link to="/">Gabion</Link>
                     </li>
                   </ul>
+                  </div>
                   <div onClick={() => history.push("/boutique")}>Boutique</div>
                 </div>
               )}

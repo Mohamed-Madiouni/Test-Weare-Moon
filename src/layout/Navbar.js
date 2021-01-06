@@ -7,9 +7,9 @@ function Navbar() {
   const location = useLocation();
   const history = useHistory();
   const [drop, setDrop] = useState({ valeur: 0 });
-  const [under, setUnder] = useState(0);
   const [size, setSize] = useState(false);
   const [clk, setClk] = useState(false);
+  const [search, setSearch] = useState(false);
   const [collapseID, setCollapseID] = useState("");
   const [colNum, setColNum] = useState(0);
   const [contactData, setContactData] = useState({
@@ -26,15 +26,7 @@ function Navbar() {
   const onSubmit = (e) => {
     e.preventDefault();
   };
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.scrollY > 0) {
-  //       setInfo(false);
-  //     } else {
-  //       setInfo(true);
-  //     }
-  //   });
-  // });
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth <= 991) {
@@ -49,122 +41,61 @@ function Navbar() {
     if (window.innerWidth <= 991) {
       setSize(true);
     }
-    // if (window.scrollY > 0) {
-    //   setInfo(false);
-    // }
   }, []);
 
   return (
     <>
       {size ? (
-        <div className="navb">
+        <div className="navb-small">
           <div
-            className="row "
             style={{
-              height: !clk && 65,
-              transition: "all 0s",
               margin: 0,
-              width: "100%",
-              background: "#F0EEEB",
             }}
+            className="nav-mobile"
           >
-            <div
-              className="col-8 pad"
-              style={{
-                height: 65,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
+            <div className="first-small">
               <Link to="/">
-                <img
-                  src="/sources/vibtic.png"
-                  alt="vibtic"
-                  className="img_vib"
-                  style={{ width: 110, height: 30 }}
-                />
+                <img src="/sources/logo.svg" alt="Mon exterieur" />
               </Link>
             </div>
-            <div
-              className="col-3"
-              style={{
-                height: 65,
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                fontSize: 25,
-              }}
-            >
+            <div>
+              <i
+                className="fas fa-search"
+                onClick={() => setSearch(!search)}
+              ></i>
+            </div>
+            <div>
               <MDBIcon
                 icon={clk ? "times" : "align-justify"}
-                className="black-text"
                 onClick={() => setClk(!clk)}
               />
             </div>
+            {search && (
+              <div className="search-nav">
+                <input type="text" placeholder="Recherche" autoFocus />
+              </div>
+            )}
 
             {clk && (
-              <div
-                className="col-8 pad"
-                style={{ marginBottom: 15, lineHeight: "23px" }}
-              >
-                <ul
-                  className="ul_drop"
-                  style={{
-                    listStyleType: "none",
-                    padding: 0,
-                    margin: 0,
-                    color: "white",
-                    fontSize: 14,
-                    fontWeight: 500,
-                  }}
-                >
+              <div className="drop">
+                <ul className="ul_drop">
                   <li>
                     <Link to="/">
                       {" "}
-                      <span
-                        style={{
-                          color: location.pathname === "/" && "#E73528",
-                        }}
-                      >
-                        Accueil
-                      </span>
+                      <span>Accueil</span>
                     </Link>
-
-                    {/* <ul style={{listStyleType:"none",paddingLeft:10,margin:0}}>
-                 <li>
-                  VIBTIC
-              </li>
-              <li>
-                 compétences & expertise
-              </li>
-              <li>
-                 implantation
-              </li>
-              <li>
-                  nos valeurs et nos engagements
-              </li>
-              <li>
-                  références
-              </li>
-                 </ul> */}
                   </li>
                   <li>
                     <span
                       onClick={() => {
-                        toggleCollapse("basicCollapse");
-                        setColNum(collapseID && colNum === 1 ? 0 : 1);
-                      }}
-                      style={{
-                        color:
-                          (location.pathname === "/systeme" ||
-                            location.pathname === "/reseau" ||
-                            location.pathname === "/web" ||
-                            location.pathname === "/projet") &&
-                          "#E73528",
+                        if (location.pathname === "/boutique") {
+                          toggleCollapse("basicCollapse");
+                          setColNum(collapseID && colNum === 1 ? 0 : 1);
+                        }
+                        history.push("/boutique");
                       }}
                     >
-                      Services{" "}
+                      Boutique{" "}
                     </span>
                     <MDBCollapse
                       id="basicCollapse"
@@ -176,134 +107,87 @@ function Navbar() {
                           paddingLeft: 10,
                           margin: 0,
                         }}
+                        className="collapse-ul"
                       >
                         <li>
                           <Link
-                            to="/systeme"
+                            to="/"
                             style={{
                               fontSize: 15,
-                              color:
-                                location.pathname === "/systeme"
-                                  ? "#E73528"
-                                  : "black",
+                              color: "#4D302B",
                             }}
                           >
-                            systéme d'information
+                            Lame commposite
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/reseau"
+                            to="/"
                             style={{
                               fontSize: 15,
-                              color:
-                                location.pathname === "/reseau"
-                                  ? "#E73528"
-                                  : "black",
+                              color: "#4D302B",
                             }}
                           >
-                            réseaux & sécurité
+                            Lame en bois
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/web"
+                            to="/"
                             style={{
                               fontSize: 15,
-                              color:
-                                location.pathname === "/web"
-                                  ? "#E73528"
-                                  : "black",
+                              color: "#4D302B",
                             }}
                           >
-                            application web
+                            Panneau bois
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/projet"
+                            to="/"
                             style={{
                               fontSize: 15,
-                              color:
-                                location.pathname === "/projet"
-                                  ? "#E73528"
-                                  : "black",
+                              color: "#4D302B",
                             }}
                           >
-                            gestion du projet
+                            Grille rigide
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/"
+                            style={{
+                              fontSize: 15,
+                              color: "#4D302B",
+                            }}
+                          >
+                            Gabion
                           </Link>
                         </li>
                       </ul>
                     </MDBCollapse>
                   </li>
                   <li>
-                    <span
-                      onClick={() => {
-                        toggleCollapse("basicCollapse");
-                        setColNum(collapseID && colNum === 2 ? 0 : 2);
-                      }}
-                      style={{
-                        color:
-                          (location.pathname === "/candidature" ||
-                            location.pathname === "/offres") &&
-                          "#E73528",
-                      }}
-                    >
-                      Carrière
-                    </span>
-                    <MDBCollapse
-                      id="basicCollapse"
-                      isOpen={colNum === 2 && collapseID}
-                    >
-                      <ul
-                        style={{
-                          listStyleType: "none",
-                          paddingLeft: 10,
-                          margin: 0,
-                        }}
-                      >
-                        <li>
-                          <Link
-                            to="/offres"
-                            style={{
-                              fontSize: 15,
-                              color:
-                                location.pathname === "/offres"
-                                  ? "#E73528"
-                                  : "black",
-                            }}
-                          >
-                            nos offres d'emploi
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/candidature"
-                            style={{
-                              fontSize: 15,
-                              color:
-                                location.pathname === "/candidature"
-                                  ? "#E73528"
-                                  : "black",
-                            }}
-                          >
-                            candidature spontanée
-                          </Link>
-                        </li>
-                      </ul>
-                    </MDBCollapse>
-                  </li>
-                  <li>
-                    <Link to="/contact">
-                      <span
-                        style={{
-                          color: location.pathname === "/contact" && "#E73528",
-                        }}
-                      >
-                        Contact
-                      </span>{" "}
+                    <Link to="/">
+                      <span>Nos réalisations</span>{" "}
                     </Link>
                   </li>
+
+                  <li>
+                    <Link to="/">
+                      <span>Contactez-nous</span>{" "}
+                    </Link>
+                  </li>
+                  {/* <li>
+                    <Link to="/">
+                      <span>Configurateur</span>{" "}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      <span>Notre magasin</span>{" "}
+                    </Link>
+                  </li> */}
                 </ul>
               </div>
             )}
@@ -325,204 +209,13 @@ function Navbar() {
                 <img
                   src="/sources/logo.svg"
                   alt="Mon exterieur"
-                  style={{ width: 168, height: 20, transition: "width 0.5s" }}
+                  style={{ width: 168, height: 20 }}
                 />
               </Link>
             </div>
             <div className=" second">
               <i className="fas fa-search"></i>
               <input type="text" placeholder="Recherche" />
-              {/* <div
-                className="drop"
-                style={{
-                  position: "relative",
-                  textDecoration: under === 1 && "underline",
-                }}
-              >
-                <Link
-                  to="/"
-                  onMouseEnter={() => {
-                    setDrop({ ...drop, valeur: 1 });
-                  }}
-                  onClick={() => {
-                    setDrop({ ...drop, valeur: 1 });
-                  }}
-                  style={{ color: location.pathname === "/" && "#E73528" }}
-                >
-                  Accueil
-                
-                </Link>
-               
-              </div>
-              <div
-                className="drop"
-                style={{
-                  position: "relative",
-                  textDecoration: under === 2 && "underline",
-                }}
-              >
-                <span
-                  onMouseEnter={() => {
-                    setDrop({ ...drop, valeur: 2 });
-                  }}
-                  onClick={() => {
-                    setDrop({ ...drop, valeur: 2 });
-                  }}
-                  style={{
-                    color:
-                      (location.pathname === "/systeme" ||
-                        location.pathname === "/reseau" ||
-                        location.pathname === "/web" ||
-                        location.pathname === "/projet") &&
-                      "#E73528",
-                  }}
-                >
-                  Services
-                  <MDBIcon icon="angle-down" />
-                </span>
-                {drop.valeur === 2 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 45,
-                      right: 0,
-                      width: "max-content",
-                    }}
-                    onMouseLeave={() => {
-                      setDrop({ ...drop, valeur: 0 });
-                      setUnder(0);
-                    }}
-                  >
-                    <ul
-                      style={{ listStyleType: "none", padding: 0, margin: 0 }}
-                    >
-                      <li>
-                        <Link
-                          to="/systeme"
-                          style={{
-                            fontSize: 14,
-                            color:
-                              location.pathname === "/systeme" && "#E73528",
-                          }}
-                        >
-                         systéme d'information
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/reseau"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/reseau" && "#E73528",
-                          }}
-                        >
-                         réseaux & sécurité
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/web"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/web" && "#E73528",
-                          }}
-                        >
-                          application web
-                        </Link>
-                      </li>
-                      <li style={{ border: "none" }}>
-                        <Link
-                          to="/projet"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/projet" && "#E73528",
-                          }}
-                        >
-                          gestion du projet
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-              <div
-                className="drop"
-                style={{
-                  position: "relative",
-                  textDecoration: under === 3 && "underline",
-                }}
-              >
-                <span
-                  onMouseEnter={() => {
-                    setDrop({ ...drop, valeur: 3 });
-                  }}
-                  onClick={() => {
-                    setDrop({ ...drop, valeur: 3 });
-                  }}
-                  style={{
-                    color:
-                      (location.pathname === "/candidature" ||
-                        location.pathname === "/offres") &&
-                      "#E73528",
-                  }}
-                >
-                  Carrière
-                  <MDBIcon icon="angle-down" />
-                </span>
-                {drop.valeur === 3 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 45,
-                      right: 0,
-                      width: "max-content",
-                    }}
-                    onMouseLeave={() => {
-                      setDrop({ ...drop, valeur: 0 });
-                      setUnder(0);
-                    }}
-                  >
-                    <ul
-                      style={{ listStyleType: "none", padding: 0, margin: 0 }}
-                    >
-                    
-                      <li>
-                        <Link
-                          to="/offres"
-                          style={{
-                            fontSize: 14,
-                            color: location.pathname === "/offres" && "#E73528",
-                          }}
-                        >
-                         nos offres d'emploi
-                        </Link>
-                      </li>
-                      <li style={{ border: "none" }}>
-                        <Link
-                          to="/candidature"
-                          style={{
-                            fontSize: 14,
-                            color:
-                              location.pathname === "/candidature" && "#E73528",
-                          }}
-                        >
-                          candidature spontanée
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-              <div style={{ position: "relative", margin: "0px 16px" }}>
-                <Link
-                  to="/contact"
-                  style={{
-                    color: location.pathname === "/contact" && "#E73528",
-                  }}
-                >
-                  Contact
-                </Link>
-              </div> */}
             </div>
             <div>
               <img src="/sources/mark.svg" alt="mark" />

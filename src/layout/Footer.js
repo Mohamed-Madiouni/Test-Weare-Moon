@@ -20,7 +20,7 @@ function Footer() {
         <div>
           <p>Nous contacter</p>
           <div>
-            <h5>Adress :</h5>
+            <h5>Adresse :</h5>
             <p>3 rue du champ de verger Allonnes, Pays de la Loire, France</p>
             <h5>Telephone :</h5>
             <p>+33 2 43 57 00 87</p>

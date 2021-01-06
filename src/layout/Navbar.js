@@ -217,18 +217,18 @@ function Navbar() {
               <i className="fas fa-search"></i>
               <input type="text" placeholder="Recherche" />
             </div>
-            <div>
+            <div onClick={()=>history.push("/")}>
               <img src="/sources/mark.svg" alt="mark" />
               <span>Notre magasin</span>
             </div>
-            <div>
+            <div onClick={()=>history.push("/")}>
               <img src="/sources/fence.svg" alt="fence" />
               <span>Configurateur</span>
             </div>
             <div></div>
           </div>
           <div>
-            <div>
+            <div onClick={()=>history.push("/")}>
               <span>Accueil</span>
             </div>
             <div
@@ -279,7 +279,7 @@ function Navbar() {
                 </div>
               )}
             </div>
-            <div>
+            <div onClick={()=>history.push("/")}>
               <span>Nos réalisations</span>
             </div>
             <div

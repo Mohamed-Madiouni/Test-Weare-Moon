@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../style/footer.css";
 function Footer() {
-  const date = new Date();
   return (
     <div className="footer">
       <div>

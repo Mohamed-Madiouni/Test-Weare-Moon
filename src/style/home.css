@@ -602,6 +602,9 @@ opacity: 1;
         padding: 0px 10%;
         top: 57% !important;
     }
+    .home-welcome{
+        background-size: 120% 280px !important;
+    }
 }
 @media screen and (max-width:450px){
     .config{
@@ -671,6 +674,9 @@ opacity: 1;
         font-size: 22px;
         padding: 20% 80px 5% 20px;
         line-height:30px
+    }
+    .home-welcome{
+        background-size: 140% 280px !important;
     }
 
 }

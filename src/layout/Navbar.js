@@ -217,18 +217,18 @@ function Navbar() {
               <i className="fas fa-search"></i>
               <input type="text" placeholder="Recherche" />
             </div>
-            <div onClick={()=>history.push("/")}>
+            <div onClick={() => history.push("/")}>
               <img src="/sources/mark.svg" alt="mark" />
               <span>Notre magasin</span>
             </div>
-            <div onClick={()=>history.push("/")}>
+            <div onClick={() => history.push("/")}>
               <img src="/sources/fence.svg" alt="fence" />
               <span>Configurateur</span>
             </div>
             <div></div>
           </div>
           <div>
-            <div onClick={()=>history.push("/")}>
+            <div onClick={() => history.push("/")}>
               <span>Accueil</span>
             </div>
             <div
@@ -251,37 +251,37 @@ function Navbar() {
                     top: 0,
                     right: 0,
                     left: 0,
-                    cursor:"pointer"
+                    cursor: "pointer",
                   }}
                   onMouseLeave={() => {
                     setDrop({ ...drop, valeur: 0 });
                   }}
                   className="drop-list"
                 >
-                  <div style={{background: "url(/sources/img_accueil.svg)"}} >
-                  <ul style={{ listStyleType: "none", margin: 0 }}>
-                    <li>
-                      <Link to="/">Lame commposite</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Lame en bois</Link>
-                    </li>
-                    <li>
-                      <Link to="/">Panneau bois</Link>
-                    </li>
-                    <li style={{ border: "none" }}>
-                      <Link to="/">Grille rigide</Link>
-                    </li>
-                    <li style={{ border: "none" }}>
-                      <Link to="/">Gabion</Link>
-                    </li>
-                  </ul>
+                  <div style={{ background: "url(/sources/img_accueil.svg)" }}>
+                    <ul style={{ listStyleType: "none", margin: 0 }}>
+                      <li>
+                        <Link to="/">Lame commposite</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Lame en bois</Link>
+                      </li>
+                      <li>
+                        <Link to="/">Panneau bois</Link>
+                      </li>
+                      <li style={{ border: "none" }}>
+                        <Link to="/">Grille rigide</Link>
+                      </li>
+                      <li style={{ border: "none" }}>
+                        <Link to="/">Gabion</Link>
+                      </li>
+                    </ul>
                   </div>
                   <div onClick={() => history.push("/boutique")}>Boutique</div>
                 </div>
               )}
             </div>
-            <div onClick={()=>history.push("/")}>
+            <div onClick={() => history.push("/")}>
               <span>Nos réalisations</span>
             </div>
             <div

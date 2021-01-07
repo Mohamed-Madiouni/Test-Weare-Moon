@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../style/home.css";
 
 function Home() {
     const history =useHistory()
+    const [realisation,setRealisation]=useState(1)
   return (
     <>
       <div
@@ -42,23 +43,9 @@ function Home() {
           <div>
           <i className="fas fa-arrow-right"></i>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="252" height="219" viewBox="0 0 252 219">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.462" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stopColor="#4d302b"/>
-      <stop offset="1" stopColor="#653d36"/>
-    </linearGradient>
-    <clipPath id="clip-path">
-      <rect id="Rectangle_44" data-name="Rectangle 44" width="252" height="219" transform="translate(-0.346 -0.373)" fill="url(#linear-gradient)"/>
-    </clipPath>
-  </defs>
-  <g id="Groupe_de_masques_2" data-name="Groupe de masques 2" transform="translate(0.346 0.373)" clipPath="url(#clip-path)">
-    <g id="Groupe_23" data-name="Groupe 23" transform="translate(-52.278 40.495) rotate(-16)">
-      <path id="Tracé_58" data-name="Tracé 58" d="M129.759,35.068,129.586.641,0,0,.173,34.428l129.586.641Z" transform="translate(0.002 0)" fill="#7daf3f"/>
-      <path id="Tracé_59" data-name="Tracé 59" d="M129.978,78.23l-92.141-.455-.227-45.1,92.141.455L129.588.641,62.084.307h0L0,0,.563,112.02l129.588.641Z" transform="translate(0.392 78.073)" fill="#7daf3f"/>
-    </g>
-  </g>
-</svg>
+<img src="/sources/E.png" alt="" className="img-green"/>
+<img src="/sources/E-2.png" alt="" className="img-brown"/>
+
       </div>
       <div className="realisation">
           <div>
@@ -73,17 +60,64 @@ function Home() {
               
           </div>
           <div>
-              <h3>
+             <h3>
               Panneau bois
               </h3>
               <p>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
               </p>
               <div>
-              <i className="fas fa-arrow-left"></i>
-              <i className="fas fa-arrow-right"></i>
+              <i className="fas fa-arrow-left" ></i>
+              <i className="fas fa-arrow-right" ></i>
+              </div>
+              <div>
+              <i className="fas fa-arrow-left"   onClick={()=>realisation===1?setRealisation(3):setRealisation(realisation-1)}></i>
+              <div className="dots-home">
+                <div style={{backgroundColor:realisation!==1&&"#FFFFFF"}}></div>
+                <div style={{backgroundColor:realisation!==2&&"#FFFFFF"}}></div>
+                <div style={{backgroundColor:realisation!==3&&"#FFFFFF"}}></div>
+              </div>
+              <i className="fas fa-arrow-right" onClick={()=>realisation===3?setRealisation(1):setRealisation(realisation+1)}></i>
               </div>
           </div>
+
+      </div>
+      <div className="notice">
+        <div>
+          <h2>Notice <br/> & Installation</h2>
+          <p>
+          Avant de commencer, calculez la quantité de bois, de béton et de quincaillerie dont vous aurez besoin.
+          </p>
+          <div>
+            <span> EN SAVOIR PLUS</span>
+            <i className="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div>
+        <div style={{background:"url(/sources/notice-1.png)"}}>
+        <img src="/sources/E.svg" alt="E"/>
+        </div>
+        </div>
+        <div>
+        <div style={{background:"url(/sources/notice-2.png)"}}>
+        <img src="/sources/E.svg" alt="E"/>
+        </div>
+        </div>
+        <div>
+        <div style={{background:"url(/sources/notice-3.png)"}}>
+        <img src="/sources/E.svg" alt="E"/>
+        </div>
+        </div>
+        <div>
+        <div style={{background:"url(/sources/notice-4.png)"}}>
+        <img src="/sources/E.svg" alt="E"/>
+        </div>
+        </div>
+        <div>
+        <div style={{background:"url(/sources/notice-5.png)"}}>
+        <img src="/sources/E.svg" alt="E"/>
+        </div>
+        </div>
 
       </div>
     </>

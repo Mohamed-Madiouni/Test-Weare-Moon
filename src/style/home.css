@@ -17,7 +17,6 @@
       justify-content: space-between;
       flex-wrap: wrap;
       padding-bottom: 20px;
-      background-color: #F8F8F8;
   }
   .home-map>div{
       width: 200px;
@@ -28,8 +27,8 @@
       color: #FFFFFF;
       font-size: 18px;
       background-repeat: no-repeat !important;
-      background-size: cover;
-      margin: 11px 0px;
+      background-size: cover !important;
+      margin: 11px 2px;
       cursor: pointer;
       position: relative;
   }
@@ -62,6 +61,7 @@ display: none;
       transition: all 0.4s ;
       margin-bottom: 140px;
       overflow: hidden;
+      cursor: pointer;
   }
   .config>div:nth-child(1){
       grid-column-start: 1;
@@ -103,17 +103,28 @@ display: none;
     color: #FFFFFF;
     font-size: 20px;
 }
-.config>svg{
+.img-green{
 position: absolute;
 left: 0px;
 bottom:  0px;
+height: 100%;
 }
+.img-brown{
+    position: absolute;
+    left: 0px;
+    bottom:  0px;
+    height: 100%;
+    display: none;
+    }
 .config:hover{
     background-color: #7DAF3F;
 }
-.config:hover path{
-    fill:#653D36
+.config:hover.img-green{
+    display: none;
 }
+.config:hover .img-brown{
+    display: block;
+    }
 .config:hover>div:nth-child(3){
 transform: translateX(15%);
 }
@@ -163,8 +174,9 @@ z-index: 1;
 left: 0px;
 top: 95px;
 width: 37%;
-padding: 45px 48px 0px 37px;
+padding: 45px 48px 62px 37px;
 height: 425px;
+
 }
 .realisation>div:nth-child(3)>h3{
     font-size: 25px;
@@ -176,8 +188,11 @@ height: 425px;
     font-size: 14px;
     color: #504E4E;
     line-height: 25px;
+    margin-bottom: 75px;
+    height: -webkit-fill-available;
+    overflow: hidden;
 }
-.realisation>div:nth-child(3)>div{
+.realisation>div:nth-child(3)>div:nth-child(3){
     position: absolute;
     border: 1px solid #E2E2E2;
     bottom: 0px;
@@ -187,24 +202,215 @@ height: 425px;
     align-items: center;
     width: 124px;
     height: 62px;
+    background: #FFFFFF;
+    }
+    .realisation:hover>div:nth-child(3)>div:nth-child(3){
+display: none;
     }
     .realisation>div:nth-child(3)>div i{
         font-size: 25px;
         color:#1F1F1F
     }
+    .realisation>div:nth-child(3)>div:nth-child(4){
+        position: absolute;
+        border: 1px solid #E2E2E2;
+        bottom: 0px;
+        right: 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        height: 62px;
+        opacity: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        }
+        .realisation:hover>div:nth-child(3)>div:nth-child(4){
+            opacity: 1;
+            overflow: visible;
+        }
+        .realisation>div:nth-child(3)>div:nth-child(4) i{
+            font-size: 25px;
+            color:#1F1F1F
+        }
+        .realisation:hover>div:nth-child(3){
+           
+            background-color: #7DAF3F;
+           
+          
+            }
+            .realisation:hover>div:nth-child(3)>h3{
+                color: #FFFFFF ;
+            }
+            .realisation:hover>div:nth-child(3)>P{
+                color: #FFFFFF ;
+            }
+        .dots-home{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 30%;
+        }
+        .dots-home>div{
+            background-color: #7DAF3F;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 1px solid #B7B7B7;
+        }
     .realisation:hover>div:nth-child(2)>img{
        transform: scale(1.1);
     }
     .realisation:hover>div:nth-child(2)>img:nth-child(2){
         display: block;
     }
-    /* .realisation:hover>div:nth-child(2){
-        
-     } */
-@media screen and (max-width:1199px){
-    .config>svg{
+    .notice{
+        margin-top: 131px;
+        width: 80%;
+        margin-left: 10%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .notice>div{
+        width: 352px;
+        height: 352px;
+        color: #FFFFFF;
+     
+       
+        margin: 9px 2px;
+        position: relative;
+        overflow: hidden;
+    }
+    .notice>div:not(:first-child)>div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        transition: 0.4s;
+    }
+    .notice>div:first-child>p{
+        font-size: 14px;
+        margin-bottom: 0px;
+        padding-left: 26px;
+        padding-right: 40px;
+        transition: 0.4s;
+    }
+    .notice>div:first-child{
+       display: block;
+       background: #653D36;
+       position: relative;
+       transition: 0.4s;
+       cursor: pointer;
+    }
+    .notice>div:first-child>h2{
+        font-size: 33px;
+        color: #7DAF3F;
+        line-height: 43px;
+        font-weight: 600;
+        padding: 71px 120px 35.5px 34px;
+        transition: 0.4s;
+    }
+    .notice>div:first-child>div{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        color:#FFFFFF;
+        font-size: 16px;
+        padding: 37px 50px 35.5px 28px;
+        transform: translateY(50px);
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.4s;
+    }
+    .notice>div>div>img{
+        position: absolute;
+        width: 42px;
+        height: 62px;
+        display: none;
+        transition: all 0.5s;
+    }
+    .notice>div:hover>div>img{
+        display: 
+        block;
+    }
+    .notice>div:first-child:hover>div{
+        transform: translateY(0px);
+        opacity: 1;
+        overflow: visible;
+    }
+    .notice>div:first-child:hover>h2{
+color: #653D36;
+transform: translateY(-20px)
+    }
+    .notice>div:first-child:hover>p{
+        transform: translateY(-20px)
+    }
+    .notice>div:first-child:hover{
+        background: #7DAF3F;
+        transform: scale(1);
+    }
+    .notice>div:hover>div{
+        transform: scale(1.1);
+    }
+@media screen and (max-width:1100px){
+    .img-green{
        display: none;
         }
+    .config:hover .img-brown{
+         display: none;
+             }
+    .config>div:nth-child(1){
+        padding-right: 30%;
+            }
+}
+@media screen and (max-width:991px){
+    .realisation{
+        width: 80%;
+        margin-left: 10%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+      grid-template-areas:  "titre" "pic" "text";
+        position: relative;
+       
+    }
+    .realisation>div:nth-child(1){
+        grid-area: titre;
+    }
+    .realisation>div:nth-child(2){
+        grid-area: pic;
+        height: 350px;
+
+    }
+    .realisation>div:nth-child(3){
+        position: static;
+        grid-area: text;
+        width: 100%;
+        height: 350px;
+        padding: 45px 10% 62px 10%;
+    }
+    .realisation>div:nth-child(3)>div:nth-child(4){
+        width: 30%;
+    }
+    .realisation>div:nth-child(1)>h2{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+       
+    }
+    .realisation>div:nth-child(2)>img:nth-child(2){
+        width: 35px;
+        height: 50px;
+    }
+    .config{
+        margin-bottom: 60px;
+    }
 }
 @media screen and (max-width:849px){
     .config>div:nth-child(2)>h3{
@@ -244,6 +450,8 @@ height: 425px;
 @media screen and (max-width:450px){
     .config{
         padding: 20px 0px;
+        margin-left: 0px;
+        width: 100%;
     }
     .config>div:nth-child(2)>h3{
        
@@ -258,6 +466,23 @@ height: 425px;
     .config>div:nth-child(1)>img{
         width: 40px;
         height: 30px;
+    }
+    .realisation{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .realisation>div:nth-child(3){
+        position: static;
+        grid-area: text;
+        width: 100%;
+        height: 350px;
+        padding: 35px 5% 62px 5%;
+    }
+    .realisation>div:nth-child(3)>div:nth-child(4){
+        right: 5%;
+    }
+    .realisation>div:nth-child(3)>div:nth-child(3){
+        right: 5%;
     }
 }
 @media screen and (max-width:499px){

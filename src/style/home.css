@@ -37,8 +37,8 @@ content: "";
 position: absolute;
 top: 0px;
 left: 0px;
-width: 200px;
-height: 160px;
+width: 100%;
+height: 100%;
 background-color: #7DAF3F;
 display: none;
   }
@@ -633,12 +633,6 @@ opacity: 1;
         width: 100%;
         height: 350px;
         padding: 35px 5% 62px 5%;
-    }
-    .realisation>div:nth-child(3)>div:nth-child(4){
-        right: 5%;
-    }
-    .realisation>div:nth-child(3)>div:nth-child(3){
-        right: 5%;
     }
     .magasin{
         margin-left: 0px;

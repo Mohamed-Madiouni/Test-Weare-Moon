@@ -597,6 +597,7 @@ opacity: 1;
     }
     .magasin>div:nth-child(3)>p{
         padding: 0px 10%;
+        top:70%
     }
     .magasin:hover>div:nth-child(3)>p{
         padding: 0px 10%;
@@ -695,6 +696,9 @@ opacity: 1;
         
         padding: 10% 0px 5% 20px;
         line-height:30px
+    }
+    .magasin:hover>div:nth-child(3)>div{
+        top:90%
     }
     
 }

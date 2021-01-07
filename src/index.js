@@ -1,4 +1,4 @@
-import React, { Suspense }  from 'react';
+import React  from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -13,9 +13,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
      <ScrollToTop />
-      <Suspense fallback={null}>
     <App />
-    </Suspense>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

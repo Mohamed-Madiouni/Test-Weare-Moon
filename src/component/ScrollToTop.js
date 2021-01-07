@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 
-function ScrollToTop({ history }) {
+function ScrollToTop({ history,location }) {
   useEffect(() => {
     const unlisten = history.listen(() => {
       window.scrollTo(0, 0);
@@ -9,7 +9,8 @@ function ScrollToTop({ history }) {
     return () => {
       unlisten();
     }
-  }, [history]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (null);
 }

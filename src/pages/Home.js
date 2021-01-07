@@ -54,7 +54,7 @@ function Home() {
               </h2>
           </div>
           <div >
-              <img src="/sources/realisations.png" alt=""/>
+              <img src="/sources/realisations.png" alt="realisation"/>
               
               <img src="/sources/E.svg" alt="E"/>
               
@@ -118,6 +118,32 @@ function Home() {
         <img src="/sources/E.svg" alt="E"/>
         </div>
         </div>
+
+      </div>
+
+      <div className="magasin">
+          
+          <div >
+              <img src="/sources/magasin.png" alt="magasin"/>
+              
+              <img src="/sources/E.svg" alt="E"/>
+              
+          </div>
+          <div>
+              <h2>
+              Notre magasin
+              </h2>
+          </div>
+          <div>
+            <img src="/sources/magasin-1.png" alt="work"/>
+              <p>
+              Dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+              </p>
+              <div>
+            <span> EN SAVOIR PLUS</span>
+            <i className="fas fa-arrow-right"></i>
+          </div>
+          </div>
 
       </div>
     </>

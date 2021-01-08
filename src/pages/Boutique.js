@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
 import { getProduct } from "../actions/productaction";
 import "../style/boutique.css";
@@ -8,7 +8,7 @@ function Boutique() {
   const [selection, setSelection] = useState(1);
   const [categorie, setCategorie] = useState(1);
 
-  const products = useSelector((state) => state.products.products);
+  // const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());

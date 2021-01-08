@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Footer from './layout/Footer';
 import Navbar from './layout/Navbar';
+import Boutique from './pages/Boutique';
 import Home from './pages/Home';
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route  path="/boutique" component={Boutique} />
+          <Route  path="*" render={()=><h1 style={{marginTop:100,padding:30}} >404 Page introuvable</h1>} />
           </Switch>
         
 </div>

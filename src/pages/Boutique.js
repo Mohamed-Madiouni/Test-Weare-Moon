@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProduct } from "../actions/productaction";
 import "../style/boutique.css";
@@ -43,8 +43,11 @@ function Boutique() {
           <div>
             <h2 onClick={() => setCollapse(!collapse)}>
               CATÉGORIES
-              {!collapse?<i className="fas fa-plus"></i>
-              :<i className="fas fa-minus"></i>}
+              {!collapse ? (
+                <i className="fas fa-plus"></i>
+              ) : (
+                <i className="fas fa-minus"></i>
+              )}
             </h2>
             <div style={{ display: collapse ? "block" : "none" }}>
               <p
@@ -180,7 +183,6 @@ function Boutique() {
             </p>
           </div>
           <div>
-              
             {/* Redux version */}
             {/* {
     products&&products.slice(0)

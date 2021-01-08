@@ -27,6 +27,7 @@ width: 100%;
    display: flex;
    align-items: center;
    color: #b7b7b7 !important;
+   transition: all 0.4s;
 }
 .second>input{
     width: 100%;
@@ -38,11 +39,13 @@ width: 100%;
     color: #b7b7b7 !important;
     font-family: PT Sans !important;
     /* font-size: 1.25rem; */
+    transition: all 0.4s;
 }
 .second>i{
     position: absolute;
     left: 5%;
     font-size: 23px;
+    
 }
 .second ::placeholder{
     color:#b7b7b7 !important
@@ -53,6 +56,7 @@ width: 100%;
 }
 .second:hover>i,.second:focus>i{
     left:  87%;
+    transition: all 0.4s;
 }
 .navb>div:first-child>:nth-child(3){
     grid-column-start: 3;
@@ -64,6 +68,7 @@ align-items: center;
 padding-left: 10%;
 color: #4D302B;
 cursor: pointer;
+transition: all 0.4s;
 }
 
 .navb>div:first-child>:nth-child(3)>img{
@@ -93,6 +98,7 @@ padding-left: 10%;
 background: #7DAF3F;
 color: #FFFFFF;
 cursor: pointer;
+transition: all 0.4s;
 }
 
 .navb>div:first-child>:nth-child(4)>img{

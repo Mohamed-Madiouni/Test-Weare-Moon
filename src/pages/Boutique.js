@@ -43,7 +43,8 @@ function Boutique() {
           <div>
             <h2 onClick={() => setCollapse(!collapse)}>
               CATÉGORIES
-              <i className="fas fa-plus"></i>
+              {!collapse?<i className="fas fa-plus"></i>
+              :<i className="fas fa-minus"></i>}
             </h2>
             <div style={{ display: collapse ? "block" : "none" }}>
               <p

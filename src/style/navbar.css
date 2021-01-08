@@ -45,7 +45,7 @@ width: 100%;
     position: absolute;
     left: 5%;
     font-size: 23px;
-    
+    cursor: pointer;
 }
 .second ::placeholder{
     color:#b7b7b7 !important

@@ -41,7 +41,7 @@ function Boutique() {
       <div className="categorie">
         <div>
           <div>
-            <h2 onClick={() => setCollapse(!collapse)}>
+            <h2 onClick={() => window.innerWidth <= 991&&setCollapse(!collapse)}>
               CATÉGORIES
               {!collapse ? (
                 <i className="fas fa-plus"></i>

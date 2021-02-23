@@ -5,7 +5,7 @@ import { GET_ERRORS,GET_PRODUCT } from "./types";
 export const getProduct = () => (dispatch) => {
     
     axios
-      .get("/af37df01")
+      .get("https://api.mocki.io/v1/af37df01")
       .then((res) => {
           dispatch({
             type: GET_PRODUCT,

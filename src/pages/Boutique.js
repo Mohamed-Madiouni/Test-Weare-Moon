@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import { getProduct } from "../actions/productaction";
 import "../style/boutique.css";
 function Boutique() {
   const [collapse, setCollapse] = useState(false);
   const [selection, setSelection] = useState(1);
   const [categorie, setCategorie] = useState(1);
-
-  // const products = useSelector((state) => state.products.products);
+  const history = useHistory();
+  const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
@@ -41,7 +41,9 @@ function Boutique() {
       <div className="categorie">
         <div>
           <div>
-            <h2 onClick={() => window.innerWidth <= 991&&setCollapse(!collapse)}>
+            <h2
+              onClick={() => window.innerWidth <= 991 && setCollapse(!collapse)}
+            >
               CATÉGORIES
               {!collapse ? (
                 <i className="fas fa-plus"></i>
@@ -183,89 +185,25 @@ function Boutique() {
             </p>
           </div>
           <div>
-            {/* Redux version */}
-            {/* {
-    products&&products.slice(0)
-    .reverse()
-    .map((el) => {
-      return (
-<div onClick={()=>history.push(`/boutique/${el.id}`)}>
-                {el.state!=="disponible"&&<p>SUR COMMANDE</p>}
-              <img src={el.image} alt="cat-img" />
-              <div>
-                <p>{el.description}</p>
-                <p>{el.prix}</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-
-      )})
-} */}
-            {/* Redux version */}
-
-            <div>
-              <p>SUR COMMANDE</p>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-            <div>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-            <div>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-            <div>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-            <div>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
-            <div>
-              <img src="/sources/cat-img.png" alt="cat-img" />
-              <div>
-                <p>Lame terrasse bois Pin Sylvestre traité classe 4</p>
-                <p>39,89 € ML</p>
-                <p>
-                  Voir détails <i className="fas fa-arrow-right"></i>{" "}
-                </p>
-              </div>
-            </div>
+            {products &&
+              products.map((el) => {
+                return (
+                  <div
+                    key={el.id}
+                    onClick={() => history.push(`/boutique/${el.id}`)}
+                  >
+                    {el.id === 1 && <p>SUR COMMANDE</p>}
+                    <img src={el.picture} alt="cat-img" />
+                    <div>
+                      <p>{el.product_name}</p>
+                      <p>{el.price}</p>
+                      <p>
+                        Voir détails <i className="fas fa-arrow-right"></i>{" "}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
         <div>Afficher plus</div>

@@ -5,7 +5,7 @@ import { GET_ERRORS,GET_PRODUCT } from "./types";
 export const getProduct = () => (dispatch) => {
     
     axios
-      .get("/product")
+      .get("/af37df01")
       .then((res) => {
           dispatch({
             type: GET_PRODUCT,

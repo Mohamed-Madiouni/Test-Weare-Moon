@@ -1,8 +1,36 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import HomePres from "../component/HomePres";
 import "../style/home.css";
 
 function Home() {
+  const data = [
+    {
+      img: "/sources/home_welcome.png",
+      firstTitre: "Lame",
+      secondeTitre: "commposite",
+    },
+    {
+      img: "/sources/home-map-2.svg",
+      firstTitre: "Lame",
+      secondeTitre: "en bois",
+    },
+    {
+      img: "/sources/home-map-3.svg",
+      firstTitre: "Panneau",
+      secondeTitre: "bois",
+    },
+    {
+      img: "/sources/home-map-4.svg",
+      firstTitre: "Grille",
+      secondeTitre: "rigide",
+    },
+    {
+      img: "/sources/home-map-5.svg",
+      firstTitre: "Gabion",
+      secondeTitre: "",
+    },
+  ];
   const history = useHistory();
   const [realisation, setRealisation] = useState(1);
   return (
@@ -11,46 +39,7 @@ function Home() {
         className="home-welcome"
         style={{ background: "url(/sources/home_welcome.png)" }}
       ></div>
-      <div className="home-map">
-        <div
-          style={{ background: "url(/sources/home-map-1.svg)" }}
-          onClick={() => history.push("/")}
-        >
-          <p>
-            Lame <br /> commposite
-          </p>
-        </div>
-        <div
-          style={{ background: "url(/sources/home-map-2.svg)" }}
-          onClick={() => history.push("/")}
-        >
-          <p>
-            Lame <br /> en bois
-          </p>
-        </div>
-        <div
-          style={{ background: "url(/sources/home-map-3.svg)" }}
-          onClick={() => history.push("/")}
-        >
-          <p>
-            Panneau <br /> bois
-          </p>
-        </div>
-        <div
-          style={{ background: "url(/sources/home-map-4.svg)" }}
-          onClick={() => history.push("/")}
-        >
-          <p>
-            Grille <br /> rigide
-          </p>
-        </div>
-        <div
-          style={{ background: "url(/sources/home-map-5.svg)" }}
-          onClick={() => history.push("/")}
-        >
-          <p>Gabion</p>
-        </div>
-      </div>
+      <HomePres data={data} />
       <div className="config" onClick={() => history.push("/")}>
         <div>
           <img src="/sources/fence.svg" alt="fence" />

@@ -188,6 +188,7 @@
    position: absolute;
    height: 102px;
    bottom: 0px;
+   width:100%
 }
 .categorie-map>div:nth-child(2)>div>div>p:nth-child(1){
    color: #1F1F1F;

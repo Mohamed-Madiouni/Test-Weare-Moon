@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://api.mocki.io/v1",
   "eslintConfig": {
     "extends": [
       "react-app",
